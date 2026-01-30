@@ -22,6 +22,13 @@ extension View {
   }
 }
 
+private struct MathRenderingModeKey: EnvironmentKey {
+  static let defaultValue: Math.RenderingMode = .monochrome
+}
+
 extension EnvironmentValues {
-  @Entry var mathRenderingMode: Math.RenderingMode = .monochrome
+  var mathRenderingMode: Math.RenderingMode {
+    get { self[MathRenderingModeKey.self] }
+    set { self[MathRenderingModeKey.self] = newValue }
+  }
 }

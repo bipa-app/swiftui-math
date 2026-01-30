@@ -17,6 +17,13 @@ extension View {
   }
 }
 
+private struct MathTypesettingStyleKey: EnvironmentKey {
+  static let defaultValue: Math.TypesettingStyle = .display
+}
+
 extension EnvironmentValues {
-  @Entry var mathTypesettingStyle: Math.TypesettingStyle = .display
+  var mathTypesettingStyle: Math.TypesettingStyle {
+    get { self[MathTypesettingStyleKey.self] }
+    set { self[MathTypesettingStyleKey.self] = newValue }
+  }
 }
