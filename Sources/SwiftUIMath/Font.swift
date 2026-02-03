@@ -66,6 +66,13 @@ extension View {
   }
 }
 
+private struct MathFontKey: EnvironmentKey {
+  static let defaultValue = Math.Font(name: .latinModern, size: 20)
+}
+
 extension EnvironmentValues {
-  @Entry var mathFont = Math.Font(name: .latinModern, size: 20)
+  var mathFont: Math.Font {
+    get { self[MathFontKey.self] }
+    set { self[MathFontKey.self] = newValue }
+  }
 }
